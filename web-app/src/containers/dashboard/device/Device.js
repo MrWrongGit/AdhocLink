@@ -5,6 +5,7 @@ class Device extends React.Component{
 		return (
 			<div>
 				<h1>Device Page</h1>
+				<p>{this.props.match.params.id}</p>
 			</div>
 		)
 	}

@@ -20,17 +20,15 @@ import Login from './containers/login/Login'
 import Register from './containers/register/Register'
 
 import Dashboard from './containers/dashboard/Dashboard'
-import Around from './containers/dashboard/around/Around'
-import Device from './containers/dashboard/device/Device'
-import User from './containers/dashboard/user/User'
+
 
 import DevControl from './containers/dev/control/DevControl'
 import DevConfig from './containers/dev/config/DevConfig'
 
 //reducer
-import mainReducer from './reducers/mainReducer'
+import {devicesReducer} from './reduxs/device.redux'
 
-const store = createStore(mainReducer)
+const store = createStore(devicesReducer)
 
 ReactDOM.render((
 	<Provider store={store}>
@@ -39,11 +37,7 @@ ReactDOM.render((
 			<Route path='/splash' component={Splash}></Route>
 			<Route path='/login' component={Login}></Route>
 			<Route path='/register' component={Register}></Route>
-			<Route path='/dashboard' component={Dashboard}>
-				<Route path='/around' component={Around}></Route>
-				<Route path='/device' component={Device}></Route>
-				<Route path='/user' component={User}></Route>
-			</Route>
+			<Route path='/dashboard' component={Dashboard}></Route>
 			<Route path='/dev/control' component={DevControl}></Route>
 			<Route path='/dev/config' component= {DevConfig}></Route>
 			<Route path='/invalid' component={Invalid}></Route>

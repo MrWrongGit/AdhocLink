@@ -1,3 +1,17 @@
 splash:{
 	showEnable:true,
+
+
+	devices:[
+		{
+			id:"xdafsdf",
+			name:"xxxx",
+			img:"xxx.jpg",
+			authored:true,
+			isAround:true,
+			collected:true
+		}
+	]
+
+
 }
