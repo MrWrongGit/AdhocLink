@@ -6,7 +6,7 @@ import User from './user/User'
 
 import { Switch, Route } from 'react-router-dom'
 
-import { TabBar } from 'antd-mobile'
+import { NavBar, Icon, TabBar } from 'antd-mobile'
 import 'antd-mobile/dist/antd-mobile.css'
 
 
@@ -54,7 +54,7 @@ renderContent(pageText) {
 		return (
 			<div>
 
-			<h1>Dashboard Page</h1>
+		 
 			
 
 			<Switch>

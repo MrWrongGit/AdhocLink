@@ -1,6 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { NavBar, SearchBar, List} from 'antd-mobile'
+import 'antd-mobile/dist/antd-mobile.css'
+
+const Item = List.Item
+
 class Around extends React.Component{
 	render(){
 		console.log(this.props.devices)
@@ -8,13 +13,19 @@ class Around extends React.Component{
 		console.log(deivcesArry)
 		return (
 			<div>
-				<h1>Around Page</h1>
-				<ul>
-					{
-						deivcesArry.map((device,index)=><li key={index}>{device.name !=='' ? device.name : device.id}</li>)
-					}
-				</ul>
-				
+				<NavBar mode="light">Adhoc-Link</NavBar>
+				<SearchBar placeholder="搜索" />
+
+				<List>{ 
+					deivcesArry.map((device,index)=>{
+						return (
+							<Item
+								thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+			          			arrow="horizontal"
+			          			onClick={() => {}}
+			          		>{device.name !=='' ? device.name : device.id}</Item>
+						)})}
+			    </List>
 			</div>
 		)
 	}
