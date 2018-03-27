@@ -1,0 +1,11 @@
+.top-fix {
+ 	position:fixed;
+    top:0;
+    left: 0;
+    width:100%;
+    z-index: 100;
+}
+
+.top-unfix {
+	margin-top: 45px;
+}

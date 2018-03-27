@@ -17,6 +17,22 @@ const initState = {'devices':[
 		'subscribed':false	
 	},
 	{
+		'id':'ef7689dd',
+		'name':'',
+		'img':'',
+		'authored':false,
+		'isAround':true,
+		'subscribed':false	
+	},
+	{
+		'id':'ef7689cc',
+		'name':'',
+		'img':'',
+		'authored':false,
+		'isAround':true,
+		'subscribed':false	
+	},
+	{
 		'id':'ef7689ac',
 		'name':'主卧空调',
 		'img':'48x48/ac.png',

@@ -7,6 +7,7 @@ import 'antd-mobile/dist/antd-mobile.css'
 import DevConfig from '../../dev/config/DevConfig'
 import DevControl from '../../dev/control/DevControl'
 
+import './around.css'
 const Item = List.Item
 
 class Around extends React.Component{
@@ -17,8 +18,8 @@ class Around extends React.Component{
 		console.log(this.props)
 		return (
 			<div>
-				<NavBar mode="light">Adhoc-Link</NavBar>
-				<SearchBar placeholder="搜索" />
+				<NavBar className='top-fix' mode="dark">Adhoc-Link</NavBar>
+				<SearchBar className='top-unfix' placeholder="搜索" />
 
 				<List>{ 
 					deivcesArry.map((device,index)=>{
