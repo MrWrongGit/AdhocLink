@@ -38,8 +38,8 @@ ReactDOM.render((
 			<Route path='/login' component={Login}></Route>
 			<Route path='/register' component={Register}></Route>
 			<Route path='/dashboard' component={Dashboard}></Route>
-			<Route path='/dev/control' component={DevControl}></Route>
-			<Route path='/dev/config' component= {DevConfig}></Route>
+			<Route path='/dev/control/:id' component={DevControl}></Route>
+			<Route path='/dev/config/:id' component= {DevConfig}></Route>
 			<Route path='/invalid' component={Invalid}></Route>
 
 			<Redirect to='/invalid'></Redirect>
