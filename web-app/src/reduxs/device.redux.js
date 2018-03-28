@@ -4,9 +4,9 @@ const initState = {'devices':[
 		'id':'ef7689ab',
 		'name':'电视机',
 		'img':'48x48/tv.png',
-		'authored':true,
+		'authored':false,
 		'isAround':true,
-		'subscribed':true	
+		'subscribed':false	
 	},
 	{
 		'id':'ef7689aa',

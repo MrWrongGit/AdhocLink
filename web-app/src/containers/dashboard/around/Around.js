@@ -29,7 +29,7 @@ class Around extends React.Component{
 								thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
 			          			arrow="horizontal"
 			          			onClick={()=>{
-			          				const toPath = '/dev/' + (device.authored ? 'control/' : 'config/') + device.id
+			          				const toPath = '/dev/control/' + device.id
 			          				console.log(toPath)
 			          				this.props.history.push(toPath)
 			          			}}
