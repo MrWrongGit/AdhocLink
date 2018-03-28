@@ -27,4 +27,4 @@ class DevConfig extends React.Component{
 	}
 }
 
-export default DevConfig
+export default DevConfig 

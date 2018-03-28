@@ -8,8 +8,26 @@ splash:{
 			name:"xxxx",
 			img:"xxx.jpg",
 			authored:true,
-			isAround:true,
-			collected:true
+			subscribed:true,
+			collected:true,
+			pswd:'xxx',
+			pannel:[
+				{
+					type:'num',
+					max:100,
+					min:5,
+					desc:'温度'
+				},
+				{
+					type:'toggle',
+					state:false,
+					desc:'加温'
+				},
+				{
+					type:'click'
+					desc:'关机'
+				}
+			]
 		}
 	]
 
