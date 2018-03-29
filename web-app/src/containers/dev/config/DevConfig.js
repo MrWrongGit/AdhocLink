@@ -10,7 +10,7 @@ class DevConfig extends React.Component{
 		return (
 			<div>
 				<NavBar 
-					mode="light"
+					mode="dark"
 					icon={<Icon type="left" />}
       				onLeftClick={()=>{window.history.back()}}
       			>设备设置</NavBar>

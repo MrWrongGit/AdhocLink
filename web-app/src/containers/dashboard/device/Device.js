@@ -28,9 +28,7 @@ class Device extends React.Component{
 			          			bage={1}
 
 			          			onClick={()=>{
-			          				const toPath = '/dev/' + (device.authored ? 'control/' : 'config/') + device.id
-			          				console.log(toPath)
-			          				this.props.history.push(toPath)
+			          				this.props.history.push('/dev/control/'+device.id)
 			          			}}
 			          		>{device.name !=='' ? device.name : device.id}</Item>
 						)})}

@@ -19,6 +19,8 @@ class DevControl extends React.Component{
 			'devInfo' : devInfo[0],
 			'authorState' : devInfo[0].authored ? 'authored' : 'unAuthored'
 		}
+
+		console.log(NavBar)
 	}
 	componentWillMount(){
 		if(this.state.authorState==='unAuthored'){
@@ -63,6 +65,21 @@ class DevControl extends React.Component{
 		}
 	}
 
+	showPannel(){
+		return (
+  			<Card>
+		      <Card.Header
+		        title="开关"
+		        extra={<span>On</span>}
+		      />
+		      <Card.Body>
+		        <div>This is content of `Card`</div>
+		      </Card.Body>
+		      <Card.Footer content="footer content" extra={<div>extra footer content</div>} />
+		    </Card>
+		)
+	}
+
 	showContent(){
 		if(this.state.authorState==='authoring'){
 			return (
@@ -73,48 +90,33 @@ class DevControl extends React.Component{
 				<ActivityIndicator size="large" text="正在获取控制面板..." />
 			)
 		}else if(this.state.authorState==='pannelReady'){
-			return (
-
-      			<Card>
-			      <Card.Header
-			        title="开关"
-			        extra={<span>On</span>}
-			      />
-			      <Card.Body>
-			        <div>This is content of `Card`</div>
-			      </Card.Body>
-			      <Card.Footer content="footer content" extra={<div>extra footer content</div>} />
-			    </Card>
-			)
+			return this.showPannel()
 		}
 	}
 
 	render(){
-		console.log(this.props)
-		const devId=this.props.match.params.id
-		const devInfo = this.props.devices.filter((devInfoMeta)=>{
-			return devInfoMeta.id===devId
-		})
-		console.log(devInfo[0])
-
-		
-
 		return (
 			<div>
-				
 				<NavBar 
 					mode="dark"
 					icon={<Icon type="left" />}
       				onLeftClick={()=>{window.history.back()}}
-      			>{devInfo[0].name==='' ? devInfo[0].id : devInfo[0].name}</NavBar>
+					
+					rightIcon={<Icon type="ellipsis" />}
+      				onRightClick={()=>{
+      					this.props.history.push('/dev/config/'+this.state.devInfo.id)
+      				}}
+      			>
+      				{this.state.devInfo.name==='' ? this.state.devInfo.id : this.state.devInfo.name}
+      			</NavBar>
 				
 				{this.showContent()}
-      			
 			</div>
 		)
 	}
 }
-//(devInfoMeta.id==='ef7689ab')
+
+
 const matchStateToProps = (state) => {
 	
 	return state

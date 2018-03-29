@@ -7,7 +7,8 @@ splash:{
 			id:"xdafsdf",
 			name:"xxxx",
 			img:"xxx.jpg",
-			authored:true,
+			state:'unAuthored' //(authering -> authered -> pannelReqing -> pannelReady)
+			pswd:'xxxxx'
 			subscribed:true,
 			collected:true,
 			pswd:'xxx',
