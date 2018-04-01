@@ -53,7 +53,7 @@ const initState = {'devices':[
 		'pswd':''	
 	},
 	{
-		'id':'ef7689ac',
+		'id':'ef7689dc',
 		'name':'主卧空调',
 		'img':'48x48/ac.png',
 		'authored':false,
@@ -77,19 +77,49 @@ const initState = {'devices':[
 
 const SUB_DEV = 'sub_dev'
 const UNSUB_DEV = 'unsub_dev'
+
 const DEV_AUTH = 'dev_auth'
+const DEV_AUTH_RTN = 'dev_auth_rtn'
+
+const DEV_PANNEL_REQ = 'dev_pannel_req'
+const DEV_PANNEL_RSP = 'dev_pannel_rsp'
 
 export const devicesReducer=(state=initState,action)=>{
+	//deep-copy
+	let newState = JSON.parse(JSON.stringify(state));
+	
 	switch(action.type){
 		case DEV_AUTH:
-			return state.map((devInfoMeta)=>{
+			return {'devices': newState.devices.map((devInfoMeta)=>{
+						if(devInfoMeta.id===action.devId){
+							devInfoMeta.state = ST_AUTH_REQ
+						}
+						return devInfoMeta
+					})}
+		case DEV_AUTH_RTN:
+			return {'devices': newState.devices.map((devInfoMeta)=>{
 						if(devInfoMeta.id===action.devId){
 							devInfoMeta.pswd = action.pswd
 							devInfoMeta.state = action.state
 						}
-					})
+						return devInfoMeta
+					})}
+		case DEV_PANNEL_REQ:
+			return {'devices': newState.devices.map((devInfoMeta)=>{
+						if(devInfoMeta.id===action.devId){
+							devInfoMeta.state = ST_PANNEL_REQ
+						}
+						return devInfoMeta
+					})}
+		case DEV_PANNEL_RSP:
+			return {'devices': newState.devices.map((devInfoMeta)=>{
+						if(devInfoMeta.id===action.devId){
+							devInfoMeta.state = action.state
+						}
+						return devInfoMeta
+					})}
 		default:
-			return state;
+			return newState;
 	}
 }
 
@@ -107,17 +137,40 @@ export const unSubscribeDevice=(devId)=>{
 	}
 }
 
-export const deviceAuth(devId,pswd){
+export const deviceAuth=(devId,pswd)=>{
 	return (dispatch) => {
-		setTimeout(()=>{
-			cosnt state = (pswd==="123456") ? ST_AUTH_OK : ST_AUTH_FAIL
-  			dispatch({
+		dispatch({
   				'type':DEV_AUTH,
+  				'devId':devId,
+  		})
+
+		setTimeout(()=>{
+			const state = (pswd==="123456") ? ST_AUTH_OK : ST_AUTH_FAIL
+  			dispatch({
+  				'type':DEV_AUTH_RTN,
   				'pswd':pswd,
   				'devId':devId,
   				'state':state
   			})
+  		},3000)
+	}
+}
+
+export const devPannelReq=(devId)=>{
+	return (dispatch) => {
+		console.log('bbbb');
+		dispatch({
+  				'type':DEV_PANNEL_REQ,
+  				'devId':devId,
   		})
+
+		setTimeout(()=>{
+			console.log('ccc');
+  			dispatch({
+  				'type':DEV_PANNEL_RSP,
+  				'devId':devId,
+  				'state':ST_PANNEL_RDY
+  			})
   		},3000)
 	}
 }

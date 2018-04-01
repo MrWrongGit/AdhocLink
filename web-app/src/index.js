@@ -1,6 +1,7 @@
 //react
 import React from 'react';
 import ReactDOM from 'react-dom';
+import thunk from 'redux-thunk';
 
 //router
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
@@ -10,7 +11,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 //import Dashboard from './containers/Dashboard'
 
 //redux
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 //containers
@@ -28,7 +29,9 @@ import DevConfig from './containers/dev/config/DevConfig'
 //reducer
 import {devicesReducer} from './reduxs/device.redux'
 
-const store = createStore(devicesReducer)
+const store = createStore(
+	devicesReducer,
+	applyMiddleware(thunk))
 
 ReactDOM.render((
 	<Provider store={store}>
