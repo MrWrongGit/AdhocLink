@@ -45,7 +45,7 @@ ReactDOM.render((
 			<Route path='/dev/config/:id' component= {DevConfig}></Route>
 			<Route path='/invalid' component={Invalid}></Route>
 
-			<Redirect to='/invalid'></Redirect>
+			<Redirect to='/dashboard'></Redirect>
 		</Switch>
 	</BrowserRouter>
 	</Provider>
