@@ -3,6 +3,7 @@ import React from 'react'
 import { NavBar, Icon, List, InputItem, Button } from 'antd-mobile'
 import 'antd-mobile/dist/antd-mobile.css'
 
+const Item = List.Item;
 
 class DevConfig extends React.Component{
 	render(){
@@ -13,14 +14,12 @@ class DevConfig extends React.Component{
 					mode="dark"
 					icon={<Icon type="left" />}
       				onLeftClick={()=>{window.history.back()}}
-      			>设备设置</NavBar>
+      			>详情</NavBar>
 
       			<List>
-      				<InputItem placeholder={this.props.match.params.id}
-      					disabled={true}>设备ID:</InputItem>
-      				<InputItem placeholder='如： 客厅空调'>设备别名:</InputItem>
-      				<InputItem placeholder='请输入设备登录密码'>密码验证:</InputItem>
-      				<Button type="primary" loading={true} disabled={true}>确定</Button>
+		<Item extra={<img src="https://b-ssl.duitang.com/uploads/item/201509/11/20150911114322_8niAa.jpeg" height="45px" />} arrow="horizontal" onClick={() => {}}>头像</Item>
+				  	<Item extra="空调" arrow="horizontal" onClick={() => {}}>名字</Item>
+					<Item extra={this.props.match.params.id} disabled={true}>ID</Item>
       			</List>
 			</div>
 		)
